@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ko">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -18,14 +18,14 @@
 <main>
 <h2>Practice</h2>
 <pre>
-    <!-- input.htmlから送られてきたデータをDBに保存 -->
+    <!-- input.html에서 넘어온 데이터를 DB에 적용 -->
     <?php
     require('dbconnect.php');
  
     $statement = $db->prepare('UPDATE memos SET memo=? WHERE id=?');
     $statement->execute(array($_POST['memo'], $_POST['id']));
     ?>
-    メモの内容を変更しました
+    메모가 수정되었습니다.
 </pre>
 <p><a href="index.php">戻る</a></p>
 </main>
