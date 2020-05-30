@@ -18,7 +18,7 @@
 <main>
 <h2>Practice</h2>
 <pre>
-    <!-- input.htmlから送られてきたデータをDBに保存 -->
+    <!-- input.html에서 받은 데이터를 DB에서 제거 -->
     <?php
     require('dbconnect.php');
  
@@ -30,9 +30,9 @@
         $statement->execute(array($id));
     }
     ?>
-    メモを削除しました
+    Memo deleted!
 </pre>
-<p><a href="index.php">戻る</a></p>
+<p><a href="index.php">Return</a></p>
 </main>
 </body>    
 </html>
