@@ -1,6 +1,6 @@
 <?php require('dbconnect.php'); ?>
 <!doctype html>
-<html lang="ja">
+<html lang="ko">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -29,11 +29,11 @@ if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
 }
 ?>
 
-<!-- メモのフォーム -->
+<!-- FORM -->
 <form action="update_do.php" method="post">
     <input type="hidden" name="id" value="<?php print($id); ?>">
     <textarea name="memo" cols="50" rows="10"><?php print($memo['memo']); ?></textarea><br>
-    <button type="submit">登録する</button>
+    <button type="submit">등록</button>
 </form>
 </main>
 </body>    
