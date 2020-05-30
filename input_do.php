@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ko">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -18,15 +18,15 @@
 <main>
 <h2>Practice</h2>
 <pre>
-    <!-- input.htmlから送られてきたデータをDBに保存 -->
+    <!-- input.html에서 넘어온 데이터를 DB에 입력 -->
     <?php
     require('dbconnect.php');
-    // フォームから送信されてきた値などをDBに入れる場合はprepareなどをして安全性を高める
+    // FORM에서 전송된 데이터를 입력하는 구문 생성
     $statement = $db->prepare('INSERT INTO memos SET memo=?, created_at=NOW()');
     $statement->execute(array($_POST['memo']));
-    // $statement->bindParam(1, $_POST['memo']); 上記と同じ結果が得られる
+    // $statement->bindParam(1, $_POST['memo']); 위 구문과 동일한 효과
 
-    echo 'メッセージが登録されました';
+    echo '메모가 등록되었습니다.';
     // $db->exec('INSERT INTO memos SET memo="' . $_POST['memo'] . '", created_at=NOW()');
     ?>
 </pre>
