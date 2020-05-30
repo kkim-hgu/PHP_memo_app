@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ko">
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
@@ -17,23 +17,23 @@
 
 <main>
 <h2>Practice</h2>
-<!-- メモの一覧表示 -->
+<!-- 메모 목록 -->
 <?php
 require('dbconnect.php');
-// データの挿入
+// 데이터 입력
 // $count = $db->exec('INSERT INTO my_items SET maker_id=1, item_name="もも", price=210, keyword="缶詰,ピンク,甘い"');
-// echo $count . '件のデータを挿入しました';
+// echo $count . '개의 데이터를 입력했습니다.';
 
-// mysqlのデータの表示
+// db에서 데이터 가져오기
 // $records = $db->query('SELECT * FROM my_items');
 // while ($record = $records->fetch()) {
 //     print($record['item_name'] . "\n");
 // }
 
-// URLパラメータが指定されている場合&&数値である場合
+// URL의 파라미터 확인
 if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
     $page = $_REQUEST['page'];
-} else { // URLパラメータを省略した場合や数値でないものを指定された場合
+} else { // URL의 파라미터 리셋
     $page = 1;
 }
 $start = 5 * ($page - 1);
@@ -45,16 +45,16 @@ $memos->execute();
 
 <article>
     <?php while ($memo = $memos->fetch()): ?>
-        <!-- mb_substr 文字数の制限 -->
+        <!-- mb_substr 문자열 갯수 처리 -->
         <p><a href="memo.php?id=<?php print($memo['id']); ?>">
         <?php print(mb_substr($memo['memo'], 0, 50)); ?></a></p>
         <time><?php print($memo['created_at']); ?></time>
         <hr>
     <?php endwhile; ?>
 
-    <!-- ページリンク -->
+    <!-- 페이징 -->
     <?php if ($page >=2): ?>
-        <a href="index.php?page=<?php print($page-1); ?>"><?php print($page-1); ?>ページ目へ</a>
+        <a href="index.php?page=<?php print($page-1); ?>"><?php print($page-1); ?> page</a>
     <?php endif; ?>
     |
     <?php
@@ -63,7 +63,7 @@ $memos->execute();
     $max_page = ceil($count['cnt'] / 5);
     if ($page < $max_page):
     ?>
-        <a href="index.php?page=<?php print($page+1); ?>"><?php print($page+1); ?>ページ目へ</a>
+        <a href="index.php?page=<?php print($page+1); ?>"><?php print($page+1); ?> page</a>
     <?php endif; ?>
 </article>
 
